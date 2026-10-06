@@ -346,6 +346,7 @@
             },
             "spec": {
               "listenPort": {{ calico_bgp_listen_port }},
+              {% if calico_bgp_bind_mode is defined %}"bindMode": "{{ calico_bgp_bind_mode }}",{% endif %}
               "logSeverityScreen": "Info",
               {% if not calico_no_global_as_num | default(false) %}"asNumber": {{ global_as_num }},{% endif %}
               "nodeToNodeMeshEnabled": {{ nodeToNodeMeshEnabled | default('true') }} ,
